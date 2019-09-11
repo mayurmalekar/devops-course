@@ -1,0 +1,14 @@
+git init
+git status
+git add filename
+git commmit -m message
+.....syncing local repo with git.....
+
+https://github.com/mayurmalekar/devops-course.git
+git remote add origin "https://github.com/mayurmalekar/devops-course.git"
+git push origin master
+
+* Clone repo
+git clone https://github.com/mayurmalekar/devops-course.git
+
+
