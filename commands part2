@@ -1,1 +1,16 @@
 git remote add origin "address"
+......
+1)Creating repository
+2)Making changes
+3)syncing repo
+4)Clone repo 
+git clone "address"
+5)parallel developement
+#creating branches in git 
+    git branch feature1
+#list branches/check current branch
+    git branch
+#delete branch
+    git branch -D feature1
+#switch to branch
+    git checkout feature1
