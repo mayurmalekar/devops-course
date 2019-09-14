@@ -14,3 +14,4 @@ git clone "address"
     git branch -D feature1
 #switch to branch
     git checkout feature1
+git push origin feature1
