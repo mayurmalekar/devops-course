@@ -15,3 +15,18 @@ git clone "address"
 #switch to branch
     git checkout feature1
 git push origin feature1
+### check history of repo###
+    git log
+
+### git stash###
+working with multiple branches,, save you code without commiting code
+git stash
+git stash pop
+
+### git revert###
+git revert commit id
+
+### git diff##
+track differences between two commits
+git diff commitid1 commitid2
+git diff HEAD .
