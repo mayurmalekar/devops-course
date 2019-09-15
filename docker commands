@@ -11,36 +11,82 @@ deploy application using docker swarm
 docker --version
 
 ..docker pull......
-docker pull imagename
+sudo docker pull imagename
 
 ... list docker images.....
-docker images
+sudo docker images
 
 ....run docker image....
-docker run -it -d imagename
+sudo docker run -it -d imagename
 -it>makes container interactive in terminal
 -d > run container a daemon
 
 .... view all running containers.....also gets container id
-docker ps
+sudo docker ps
 
 ..stop odcker container...
-docker stop containerid
+sudo docker stop containerid
 
 ... list all containers....
-docker ps -a
+sudo docker ps -a
 
 ... start working on container...
-docker exec -it containerid bash
+sudo docker exec -it containerid bash
 ... here you can use ubuntu commands in side container.....
  exit     > exit from container
  
  .. kill container...
- docker kill containerid
+ sudo docker kill containerid
  
  ...docker remove/delete...
- docker rm containerid
+ sudo docker rm containerid
  
  ...remove docker image...
  sudo docker images
- docker rmi imageid
+ sudo docker rmi imageid
+
+
+.... run docker...
+sudo docker run -it -d imagename
+sudo docker exec -it containerid bash
+..now you are inside container....
+mkdir app
+exit
+
+... deleting container which is in runniing state...
+sudo docker rm -f containerid
+sudo docker run -it -d imagename
+sudo docker exec -it containerid bash
+ls
+...directory got deleted which was created previous...because chnages you made needs to be saved in image
+..save changes inside container....
+sudo docker commit containerid newimagename
+
+.....you can install software in container and save it...
+
+.. remove all containers...
+sudo docker rm -f $(sudo docker ps -a -q)
+..install apache on ubuntu..
+apt-get update
+apt-get install apache2
+service apache2 status
+service apache2 start
+service apache2 status
+exit
+...save container...
+sudo docker ps
+sudo docker commit containerid dockerhubusername/containername
+
+.. check apache working or not.
+sudo docker run -it -p 82:80 -d dockerhubusername/containername
+sudo docker ps
+
+....push image to dockerhub....
+..login to docker hub...
+sudo docker login
+username
+password
+...login succeeded...
+sudo docker push imagename e.g hshar/apache
+
+
