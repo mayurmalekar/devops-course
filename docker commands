@@ -8,3 +8,39 @@ what is container /  orchestration
 deploy application using docker swarm
 .............................................
 
+docker --version
+
+..docker pull......
+docker pull imagename
+
+... list docker images.....
+docker images
+
+....run docker image....
+docker run -it -d imagename
+-it>makes container interactive in terminal
+-d > run container a daemon
+
+.... view all running containers.....also gets container id
+docker ps
+
+..stop odcker container...
+docker stop containerid
+
+... list all containers....
+docker ps -a
+
+... start working on container...
+docker exec -it containerid bash
+... here you can use ubuntu commands in side container.....
+ exit     > exit from container
+ 
+ .. kill container...
+ docker kill containerid
+ 
+ ...docker remove/delete...
+ docker rm containerid
+ 
+ ...remove docker image...
+ sudo docker images
+ docker rmi imageid
