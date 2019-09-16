@@ -1,0 +1,52 @@
+...intro to docker file....
+its text document which contains list of commands which you use to assemble image.
+...commmnads in dockerfile...
+FROM > FROM keyword is used to define base image on which we will be building
+ADD > is used to add files to the container being built syntax for ADD
+ADD <source> <destination in container>
+RUN > used to RUN command in docker image
+CMD > this keyword is used to run commnads on start of container run obly if there is no argument is specified
+ENTRYPOINT > its same as CMD .. entrypoint will run irrespective of arguements
+ENV> specify environment v ariables syntax
+ENV nameofvariable valueofvariable
+
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y install apache2
+ADD . /var/www/html
+#CMD apachectl -D FOREGROUND
+ENTRYPOINT apachectl -D FOREGROUND
+ENV name Devops Intellipat
+
+mkdir dockerfile
+cd dockerfile
+nano Dockerfile
+
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y install apache2
+ADD . /var/www/html
+ENTRYPOINT apachectl -D FOREGROUND
+ENV name Devops Intellipat
+.....save it....
+
+...create html file..
+nano 1.html
+
+<html>
+<title> hello World </title>
+<body>
+hello from mayur </body>
+</html>
+..save....
+
+*** Run docker without sudo**
+sudo usermod -aG docker $USER
+
+...build dockerfile...so it will create docker image with specified changes....
+sudo docker build . -t new_dockerfile
+
+.....
+docker run -it -p 84:80 -d new_dockerfile
+docker ps
+
