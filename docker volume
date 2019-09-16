@@ -1,0 +1,14 @@
+...docker volume....
+it maps storage outside container
+
+...bind mount ..its os specific you can not use this on windows...
+docker run -it -v /home/ubuntu/dockerfile:/app -d ubuntu
+
+....volumes are managed by docker engine...
+docker volume create test
+..this will create volume test....
+docker volume ls
+docker run -it --mount source=test,target=/app -d ubuntu         /////this will lAUNH CONTAINER//////
+docker exec....etc.
+cd app
+touch 1.html 2.html
